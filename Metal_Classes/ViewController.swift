@@ -30,9 +30,10 @@ class ViewController: UIViewController {
 			return
 		}
 		metalView.device = device
-		renderer = Renderer(device: device)
-		
 		metalView.clearColor = Colors.cstmGreen
+
+		renderer = Renderer(device: device)
+		renderer?.scene = GameScene(device: device, size: .zero)
 		metalView.delegate = renderer
 	}
 
