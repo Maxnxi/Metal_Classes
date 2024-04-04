@@ -18,8 +18,7 @@ class ViewController: UIViewController {
 		return view as! MTKView
 	}
 	
-	var device: MTLDevice!
-	var commandQueue: MTLCommandQueue!
+	var renderer: Renderer?
 	
 	override func loadView() {
 		self.view = MTKView()
@@ -27,36 +26,15 @@ class ViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		metalView.device = MTLCreateSystemDefaultDevice()
-		device = metalView.device
+		guard let device = MTLCreateSystemDefaultDevice() else {
+			return
+		}
+		metalView.device = device
+		renderer = Renderer(device: device)
 		
 		metalView.clearColor = Colors.cstmGreen
-		metalView.delegate = self
-		commandQueue = device.makeCommandQueue()
-		
+		metalView.delegate = renderer
 	}
 
 
-}
-
-extension ViewController: MTKViewDelegate {
-	func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-		
-	}
-	
-	func draw(in view: MTKView) {
-		guard let drawable = view.currentDrawable,
-			  let descriptor = view.currentRenderPassDescriptor else {
-			fatalError()
-			//return
-		}
-		
-		let commandBuffer = commandQueue.makeCommandBuffer()!
-		
-		let commandEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: descriptor)!
-				
-		commandEncoder.endEncoding()
-		commandBuffer.present(drawable)
-		commandBuffer.commit()
-	}
 }
