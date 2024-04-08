@@ -69,7 +69,7 @@ extension matrix_float4x4 {
 		)
 	}
 	
-	func rotatedBy(angle: Float, x: Float, y: Float, z: Float) -> matrix_float4x4 {
+	func rotatedBy(rotationAngle angle: Float, x: Float, y: Float, z: Float) -> matrix_float4x4 {
 		let scaledMatrix = matrix_float4x4(rotationAngle: angle, x: x, y: y, z: z)
 		return matrix_multiply(self, scaledMatrix)
 	}
