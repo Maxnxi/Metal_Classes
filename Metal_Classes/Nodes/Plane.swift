@@ -41,11 +41,8 @@ class Plane: Node {
 	var indexBuffer: MTLBuffer?
 	
 	var time: Float = 0
-
-	struct Constants {
-		var animatedBy: Float = 0.0
-	}
-	var constants = Constants()
+	
+	var modelConstants = ModelConstants()
 	
 	// Renderable
 	var pipelineState: MTLRenderPipelineState!
@@ -62,6 +59,17 @@ class Plane: Node {
 	}
 	
 	init(device: MTLDevice, imageName: String) {
+		super.init()
+		
+		if let texture = setTexture(device: device, imageName: imageName) {
+			self.texture = texture
+			fragmentFunctionName = "textured_fragment"
+		}
+		buildBuffers(device: device)
+		pipelineState = buildPipelineState(device: device)
+	}
+	
+	init(device: MTLDevice, imageName: String, maskImageName: String) {
 		super.init()
 		
 		if let texture = setTexture(device: device, imageName: imageName) {
@@ -126,13 +134,33 @@ class Plane: Node {
 		
 		time += deltaTime
 		let animatedBy = abs(sin(time)/2 + 0.5)
-		constants.animatedBy = animatedBy
+
+		var modelViewMatrix = matrix_float4x4(scaleX: 0.5, y: 0.5, z: 0.5)
+		
+		let rotationMatrix = matrix_float4x4(rotationAngle: animatedBy, x: 0, y: 0, z: 1)
+		
+		let viewMatrix = matrix_float4x4(translationX: 0, y: 0, z: -4)
+		
+		modelViewMatrix = matrix_multiply(rotationMatrix, viewMatrix)
+		
+		
+		let aspect = Float(1179.0 / 2566.0)
+		
+		let projectionMatrix = matrix_float4x4(
+			projectionFov: radians(fromDegrees: 65),
+			aspect: aspect,
+			nearZ: 0.1,
+			farZ: 100
+		)
+		
+		modelConstants.modelViewMatrix = matrix_multiply(projectionMatrix, modelViewMatrix)
+
 		
 		commandEncoder.setRenderPipelineState(pipelineState)
 		
 		commandEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
 		
-		commandEncoder.setVertexBytes(&constants, length: MemoryLayout<Constants>.stride, index: 1)
+		commandEncoder.setVertexBytes(&modelConstants, length: MemoryLayout<ModelConstants>.stride, index: 1)
 		
 		commandEncoder.setFragmentTexture(texture, index: 0)
 		

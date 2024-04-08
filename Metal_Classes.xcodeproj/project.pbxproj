@@ -23,6 +23,7 @@
 		B791AB292BBF125F0034A43B /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B791AB282BBF125F0034A43B /* Renderable.swift */; };
 		B791AB2B2BBF12740034A43B /* Texturable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B791AB2A2BBF12740034A43B /* Texturable.swift */; };
 		B791AB2F2BBFE4660034A43B /* metalFan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B791AB2E2BBFE4660034A43B /* metalFan.jpg */; };
+		B791AB342BC435280034A43B /* MatrixMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B791AB332BC435280034A43B /* MatrixMath.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		B791AB282BBF125F0034A43B /* Renderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderable.swift; sourceTree = "<group>"; };
 		B791AB2A2BBF12740034A43B /* Texturable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texturable.swift; sourceTree = "<group>"; };
 		B791AB2E2BBFE4660034A43B /* metalFan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = metalFan.jpg; sourceTree = "<group>"; };
+		B791AB332BC435280034A43B /* MatrixMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixMath.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 		B791AAF92BBED2290034A43B /* Metal_Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B791AB322BC435130034A43B /* Maths */,
 				B791AB2C2BBF13F70034A43B /* Shader */,
 				B791AB272BBF124D0034A43B /* Protocols */,
 				B791AB232BBF041E0034A43B /* Render */,
@@ -143,6 +146,14 @@
 				B791AB2E2BBFE4660034A43B /* metalFan.jpg */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		B791AB322BC435130034A43B /* Maths */ = {
+			isa = PBXGroup;
+			children = (
+				B791AB332BC435280034A43B /* MatrixMath.swift */,
+			);
+			path = Maths;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +240,7 @@
 				B791AB112BBEE6930034A43B /* Shader.metal in Sources */,
 				B791AAFD2BBED2290034A43B /* SceneDelegate.swift in Sources */,
 				B791AB262BBF0A200034A43B /* Renderer.swift in Sources */,
+				B791AB342BC435280034A43B /* MatrixMath.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
