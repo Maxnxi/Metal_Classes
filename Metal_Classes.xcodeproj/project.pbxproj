@@ -22,6 +22,7 @@
 		B791AB262BBF0A200034A43B /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B791AB242BBF04240034A43B /* Renderer.swift */; };
 		B791AB292BBF125F0034A43B /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B791AB282BBF125F0034A43B /* Renderable.swift */; };
 		B791AB2B2BBF12740034A43B /* Texturable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B791AB2A2BBF12740034A43B /* Texturable.swift */; };
+		B791AB2F2BBFE4660034A43B /* metalFan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B791AB2E2BBFE4660034A43B /* metalFan.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		B791AB242BBF04240034A43B /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		B791AB282BBF125F0034A43B /* Renderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderable.swift; sourceTree = "<group>"; };
 		B791AB2A2BBF12740034A43B /* Texturable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texturable.swift; sourceTree = "<group>"; };
+		B791AB2E2BBFE4660034A43B /* metalFan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = metalFan.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				B791AB232BBF041E0034A43B /* Render */,
 				B791AB152BBEFD2A0034A43B /* Scenes */,
 				B791AB142BBEFD200034A43B /* Nodes */,
+				B791AB2D2BBFE4530034A43B /* Images */,
 				B791AAFA2BBED2290034A43B /* AppDelegate.swift */,
 				B791AAFC2BBED2290034A43B /* SceneDelegate.swift */,
 				B791AAFE2BBED2290034A43B /* ViewController.swift */,
@@ -132,6 +135,14 @@
 				B791AB122BBEFCC70034A43B /* Types.swift */,
 			);
 			path = Shader;
+			sourceTree = "<group>";
+		};
+		B791AB2D2BBFE4530034A43B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B791AB2E2BBFE4660034A43B /* metalFan.jpg */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +206,7 @@
 				B791AB072BBED22B0034A43B /* LaunchScreen.storyboard in Resources */,
 				B791AB042BBED22B0034A43B /* Assets.xcassets in Resources */,
 				B791AB022BBED2290034A43B /* Main.storyboard in Resources */,
+				B791AB2F2BBFE4660034A43B /* metalFan.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

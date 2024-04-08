@@ -10,10 +10,26 @@ import MetalKit
 class Plane: Node {
 	
 	var vertices: [Vertex] = [
-		Vertex(position: SIMD3<Float>(-1,1,0),	color: SIMD4<Float>(1,0,0,1)),
-		Vertex(position: SIMD3<Float>(-1,-1,0),	color: SIMD4<Float>(0,1,0,1)),
-		Vertex(position: SIMD3<Float>(1,-1,0),	color: SIMD4<Float>(0,0,1,1)),
-		Vertex(position: SIMD3<Float>(1,1,0),	color: SIMD4<Float>(1,0,1,1))
+		Vertex(
+			position: SIMD3<Float>(-1,1,0),
+			color: SIMD4<Float>(1,0,0,1),
+			texture: SIMD2<Float>(0,1)
+		),
+		Vertex(
+			position: SIMD3<Float>(-1,-1,0),
+			color: SIMD4<Float>(0,1,0,1),
+			texture: SIMD2<Float>(0,0)
+		),
+		Vertex(
+			position: SIMD3<Float>(1,-1,0),
+			color: SIMD4<Float>(0,0,1,1),
+			texture: SIMD2<Float>(1,0)
+		),
+		Vertex(
+			position: SIMD3<Float>(1,1,0),
+			color: SIMD4<Float>(1,0,1,1),
+			texture: SIMD2<Float>(1,1)
+		)
 	]
 	
 	var indices: [UInt16] = [
@@ -41,6 +57,17 @@ class Plane: Node {
 	
 	init(device: MTLDevice) {
 		super.init()
+		buildBuffers(device: device)
+		pipelineState = buildPipelineState(device: device)
+	}
+	
+	init(device: MTLDevice, imageName: String) {
+		super.init()
+		
+		if let texture = setTexture(device: device, imageName: imageName) {
+			self.texture = texture
+			fragmentFunctionName = "textured_fragment"
+		}
 		buildBuffers(device: device)
 		pipelineState = buildPipelineState(device: device)
 	}
@@ -79,6 +106,10 @@ class Plane: Node {
 		vertexDescriptor.attributes[1].offset = MemoryLayout<SIMD3<Float>>.stride
 		vertexDescriptor.attributes[1].bufferIndex = 0
 		
+		vertexDescriptor.attributes[2].format = .float2
+		vertexDescriptor.attributes[2].offset = MemoryLayout<SIMD3<Float>>.stride + MemoryLayout<SIMD4<Float>>.stride
+		vertexDescriptor.attributes[2].bufferIndex = 0
+		
 		vertexDescriptor.layouts[0].stride = MemoryLayout<Vertex>.stride
 		
 		piplineDescriptor.vertexDescriptor = vertexDescriptor
@@ -102,6 +133,8 @@ class Plane: Node {
 		commandEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
 		
 		commandEncoder.setVertexBytes(&constants, length: MemoryLayout<Constants>.stride, index: 1)
+		
+		commandEncoder.setFragmentTexture(texture, index: 0)
 		
 		commandEncoder.drawIndexedPrimitives(
 			type: .triangle,

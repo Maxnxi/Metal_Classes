@@ -12,7 +12,7 @@ class GameScene: Scene {
 	let quad: Plane
 	
 	override init(device: MTLDevice, size: CGSize) {
-		quad = Plane(device: device)
+		quad = Plane(device: device, imageName: "metalFan.jpg")
 		super.init(device: device, size: size)
 		
 		add(child: quad)
