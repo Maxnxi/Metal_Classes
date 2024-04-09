@@ -31,7 +31,8 @@ class ViewController: UIViewController {
 		}
 		metalView.device = device
 		metalView.clearColor = Colors.cstmGreen
-
+		metalView.depthStencilPixelFormat = .depth32Float
+		
 		renderer = Renderer(device: device)
 		renderer?.scene = GameScene(device: device, size: .zero)
 		metalView.delegate = renderer

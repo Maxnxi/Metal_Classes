@@ -29,6 +29,7 @@ extension Renderable {
 		piplineDescriptor.vertexFunction 	= vertexFunction
 		piplineDescriptor.fragmentFunction 	= fragmentFunction
 		piplineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+		piplineDescriptor.depthAttachmentPixelFormat = .depth32Float
 		
 		piplineDescriptor.vertexDescriptor = vertexDescriptor
 		
