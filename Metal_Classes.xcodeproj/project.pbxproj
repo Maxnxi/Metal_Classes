@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B7837F362BC4FF06008999BB /* MatrixMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7837F352BC4FF06008999BB /* MatrixMath.swift */; };
 		B7837F382BC502C1008999BB /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7837F372BC502C1008999BB /* Cube.swift */; };
+		B7837F3A2BC505BD008999BB /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7837F392BC505BD008999BB /* Camera.swift */; };
 		B791AAFB2BBED2290034A43B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B791AAFA2BBED2290034A43B /* AppDelegate.swift */; };
 		B791AAFD2BBED2290034A43B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B791AAFC2BBED2290034A43B /* SceneDelegate.swift */; };
 		B791AAFF2BBED2290034A43B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B791AAFE2BBED2290034A43B /* ViewController.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		B7837F352BC4FF06008999BB /* MatrixMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixMath.swift; sourceTree = "<group>"; };
 		B7837F372BC502C1008999BB /* Cube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
+		B7837F392BC505BD008999BB /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		B791AAF72BBED2290034A43B /* Metal_Classes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Metal_Classes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B791AAFA2BBED2290034A43B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B791AAFC2BBED2290034A43B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				B791AB1E2BBEFD780034A43B /* Plane.swift */,
 				B791AB372BC44EEE0034A43B /* exCube.swift */,
 				B7837F372BC502C1008999BB /* Cube.swift */,
+				B7837F392BC505BD008999BB /* Camera.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				B791AAFB2BBED2290034A43B /* AppDelegate.swift in Sources */,
 				B791AB292BBF125F0034A43B /* Renderable.swift in Sources */,
 				B791AB132BBEFCC70034A43B /* Types.swift in Sources */,
+				B7837F3A2BC505BD008999BB /* Camera.swift in Sources */,
 				B791AB2B2BBF12740034A43B /* Texturable.swift in Sources */,
 				B791AB172BBEFD370034A43B /* Scene.swift in Sources */,
 				B7837F362BC4FF06008999BB /* MatrixMath.swift in Sources */,

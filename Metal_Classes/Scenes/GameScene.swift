@@ -16,6 +16,14 @@ class GameScene: Scene {
 		quad = Plane(device: device, imageName: "metalFan.jpg")
 		cube = Cube(device: device)
 		super.init(device: device, size: size)
+		
+		camera.scale = float3(0.8)
+		camera.position.y = -1
+		camera.position.x = 1
+		camera.position.z = -6
+		camera.rotation.x = radians(fromDegrees: -45)
+		camera.rotation.y = radians(fromDegrees: -45)
+		
 		add(child: cube)
 		add(child: quad)
 		

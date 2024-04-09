@@ -10,23 +10,30 @@ import MetalKit
 class Scene: Node {
 	var device: MTLDevice
 	var size: CGSize
-
-
+	var camera = Camera()
+	var sceneConstants = SceneConstants()
+	
 	init(device: MTLDevice, size: CGSize) {
 		self.device = device
 		self.size = size
 		super.init()
+		
+		camera.aspect = Float(size.width / size.height)
+		camera.position.z = -6
+		add(child: camera)
 	}
 	
 	func update(deltaTime: Float) {}
 	
 	func render(commandEncoder: MTLRenderCommandEncoder, deltaTime: Float) {
-	  update(deltaTime: deltaTime)
-	  let viewMatrix = matrix_float4x4(translationX: 0, y: 0, z: -4)
-	  for child in children {
-		child.render(commandEncoder: commandEncoder,
-					 parentModelViewMatrix: viewMatrix)
-	  }
+		update(deltaTime: deltaTime)
+		
+		sceneConstants.projectionMatrix = camera.projectionMatrix
+		commandEncoder.setVertexBytes(&sceneConstants, length: MemoryLayout<SceneConstants>.stride, index: 2)
+				
+		for child in children {
+			child.render(commandEncoder: commandEncoder, parentModelViewMatrix: camera.viewMatrix)
+		}
 	}
 	
 }

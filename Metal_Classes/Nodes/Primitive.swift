@@ -127,16 +127,16 @@ extension Primitive: Renderable {
 	func doRender(commandEncoder: MTLRenderCommandEncoder, modelViewMatrix: matrix_float4x4) {
 		guard let indexBuffer else { return }
 		
-		let aspect = Float(1179.0 / 2566.0)
+//		let aspect = Float(1179.0 / 2566.0)
+//		
+//		let projectionMatrix = matrix_float4x4(
+//			projectionFov: radians(fromDegrees: 65),
+//			aspect: aspect,
+//			nearZ: 0.1,
+//			farZ: 100
+//		)
 		
-		let projectionMatrix = matrix_float4x4(
-			projectionFov: radians(fromDegrees: 65),
-			aspect: aspect,
-			nearZ: 0.1,
-			farZ: 100
-		)
-		
-		modelConstants.modelViewMatrix = matrix_multiply(projectionMatrix, modelViewMatrix)
+		modelConstants.modelViewMatrix = modelViewMatrix
 		
 		
 		commandEncoder.setRenderPipelineState(renderPipelineState)
