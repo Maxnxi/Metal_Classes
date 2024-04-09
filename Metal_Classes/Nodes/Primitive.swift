@@ -21,8 +21,8 @@ class Primitive: Node {
 	
 	// Renderable
 	var renderPipelineState: MTLRenderPipelineState!
-	var vertexFunctionName:		String	= "vertex_shader"//= "vertex_shader"
-	var fragmentFunctionName:	String	= "fragment_shader"//= "fragment_shader"
+	var vertexFunctionName:		String	= "vertex_shader"
+	var fragmentFunctionName:	String	= "fragment_shader"
 	
 	var vertexDescriptor: MTLVertexDescriptor {
 		let vertexDescriptor = MTLVertexDescriptor()
@@ -148,8 +148,8 @@ extension Primitive: Renderable {
 		commandEncoder.setFragmentTexture(texture, index: 0)
 		commandEncoder.setFragmentTexture(maskTexture, index: 1)
 
-		commandEncoder.setFrontFacing(.counterClockwise)
-		commandEncoder.setCullMode(.back)
+//		commandEncoder.setFrontFacing(.counterClockwise)
+//		commandEncoder.setCullMode(.back)
 		
 		commandEncoder.drawIndexedPrimitives(
 			type: .triangle,

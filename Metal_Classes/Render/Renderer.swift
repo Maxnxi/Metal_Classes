@@ -36,7 +36,7 @@ class Renderer: NSObject {
 		depthStencilStateDescriptor.depthCompareFunction = .less
 		depthStencilStateDescriptor.isDepthWriteEnabled = true
 		
-		depthStencilState = device.makeDepthStencilState(descriptor: depthStencilStateDescriptor)
+		//depthStencilState = device.makeDepthStencilState(descriptor: depthStencilStateDescriptor)
 	}
 	
 }
@@ -59,7 +59,7 @@ extension Renderer: MTKViewDelegate {
 		let deltaTime = 1 / Float(view.preferredFramesPerSecond)
 		
 		commandEncoder.setFragmentSamplerState(samplerState, index: 0)
-		commandEncoder.setDepthStencilState(depthStencilState)
+		//commandEncoder.setDepthStencilState(depthStencilState)
 		
 		scene?.render(commandEncoder: commandEncoder, deltaTime: deltaTime)
 		
