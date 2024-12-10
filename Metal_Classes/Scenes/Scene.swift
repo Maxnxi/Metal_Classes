@@ -19,7 +19,7 @@ class Scene: Node {
 		super.init()
 		
 		camera.aspect = Float(size.width / size.height)
-		camera.position.z = -6
+//		camera.position.z = -6
 		add(child: camera)
 	}
 	
